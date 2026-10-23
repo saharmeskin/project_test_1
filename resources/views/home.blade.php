@@ -15,10 +15,10 @@
             @foreach( $books as $book)
 
             <li class="px-5 py-3 bg-white mb-3">
-                <a href="{{ route('book-show', $book['id']) }}">
-                    <p><strong>Title :</strong> {{$book['title']}} </p>
-                    <p><strong>Release Date :</strong> {{$book['date']}}</p>
-                    <p><strong>Author : </strong> {{$book['author']}}</p>
+                <a href="{{ route('book-show', $book->id) }}">
+                    <p><strong>Title :</strong> {{$book->title}} </p>
+                    <p><strong>Author : </strong> {{$book->author}}</p>
+                    <p><strong>Price:</strong> {{$book->price}}</p>
                 </a>
             </li>
 

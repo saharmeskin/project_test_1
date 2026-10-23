@@ -14,29 +14,20 @@ use Illuminate\Support\Facades\Route;
 // })->name('about');
 
 
-Route::get('/', [BookController::class, 'index'])->name('home');
 
-
-Route::get('/book/{id}', [BookController::class, 'show'])->name('book-show');
-
-
-
-//  یعنی action موقع ای که فقط یک متد داشته باشه میتونیم اینجوری ینویسیم
-//  متد invokable
+// Route::get('/contacts', [ContactController::class, 'index'])->name('contact');
+//    متد invokableو  action موقع ای که فقط یک متد داشته باشه میتونیم اینجوری ینویسیم  
 Route::get('/contacts', action: ContactController::class)->name('contact');
 
-//یا همون کلاس 
-// Route::get('/contacts', [ContactController::class, 'index'])->name('contact');
-
-
-Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 //    یا متد invokable
 // Route::get('/about', action: AboutController::class)->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 
-// CRUD
 
+Route::get('/', [BookController::class, 'index'])->name('home');
+Route::get('/book/{id}', [BookController::class, 'show'])->name('book-show');
 Route::get('/book', [BookController::class, 'create'])->name('book-create');
 Route::post('/book', [BookController::class, 'store'])->name('book-store');
 Route::get('/book/{id}/edit', [BookController::class, 'edit'])->name('book-edit');
@@ -49,12 +40,8 @@ Route::resource(name: '/user', controller: UserController::class);
 
 //  مثلا اگر هم متد حذف و نمایش نخواهیم داشته باشیم با except   بگیم
 // Route::resource(name: '/user', controller: UserController::class)->except(['destroy', 'show']);
-
 // یا مثلا فقط بخوایم دو تا متد استفاده کنیم بنویسیم only لیست و نمایش
 // Route::resource(name: '/user', controller: UserController::class)->only(['index', 'show']);
-
-
-
 
 
 
